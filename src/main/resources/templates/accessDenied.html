@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html  xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <title>Access Denied ${username}</title>
+</head>
+<body>
+<p th:text="'Access Denied for username ' + ${username} + '!'" />
+<br/>
+<br/>
+
+<br/>
+<label style="color:red" >You don't have sufficient access granted for accessing request uri. </label>
+</body>
+</html>

@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html  xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <title>Welcome ${name}</title>
+</head>
+<body>
+    <p th:text="'Hello, ' + ${username} + '!'" />
+    <p th:text="'Hello OAuth user: , ' + ${oauthUser} + '!'" />
+    <br/>
+    <br/>
+
+    <ul>
+        <li>List Users</li>
+        <li>Create New Users</li>
+    </ul>
+</body>
+</html>

@@ -1,0 +1,80 @@
+
+myOktaDomain: dev-832253.oktapreview
+
+
+server:
+  port: 7070
+
+spring:
+  application:
+    name: mvcdemo
+  security:
+    #user.name: zeyaul
+    #user.password: test
+    #user.roles: USER
+    oauth2:
+      client:
+        registration:
+          google:
+            client-id: 304658219662-u15inbet0p1ice42u98tonhuc3si5k25.apps.googleusercontent.com
+            client-secret: 9fN66O-i9b8uoRN9VhENKguR
+          facebook:
+            client-id: some-invalid-client-id
+            client-secret: invalid-secret
+          okta:
+            client-id: 0oaf3ch3kxONBbrez0h7
+            client-secret: INSdXc6353l0QM8vVQdLyX3ChQYuXVLTvbsz7g16
+
+        provider:
+          okta:
+            authorization-uri: https://${myOktaDomain}.com/oauth2/default/v1/authorize
+            token-uri: https://${myOktaDomain}.com/oauth2/default/v1/token
+            user-info-uri: https://${myOktaDomain}.com/oauth2/default/v1/userinfo
+            jwk-set-uri: https://${myOktaDomain}.com/oauth2/default/v1/keys
+
+  # Database Settings
+  datasource:
+    url: jdbc:h2:mem:user-app;DB_CLOSE_DELAY=-1;DB_CLOSE_ON_EXIT=FALSE
+    platform: h2
+    username: sa
+    password:
+    driverClassName: org.h2.Driver
+  jpa:
+    database-platform: org.hibernate.dialect.H2Dialect
+    hibernate:
+      ddl-auto: update
+    properties:
+      hibernate:
+        show_sql: true
+        use_sql_comments: true
+        format_sql: true
+  # H2 Settings
+  h2:
+    console:
+      enabled: true
+      path: /console
+      settings:
+        trace: false
+        web-allow-others: false
+
+logging:
+  level:
+    org:
+      springframework:
+        web: DEBUG
+        security: DEBUG
+      hibernate: DEBUG
+
+
+
+#      security: oauth2: client: clientId: aaaaaaaabbbbbbbbbbbbcccccccccc.apps.googleusercontent.com
+#      clientSecret: 111122223333334444445555
+#      accessTokenUri: https://www.googleapis.com/oauth2/v3/token
+#      userAuthorizationUri: https://accounts.google.com/o/oauth2/auth
+#      tokenName: oauth_token authentication
+#      Scheme: query
+#      clientAuthenticationScheme: form
+#      scope: profile
+#      resource: userInfo
+#      Uri: https://www.googleapis.com/userinfo/v2/me
+#      preferTokenInfo: false
